@@ -1,0 +1,17 @@
+# Automatic dark/light switching
+theme = dark:Rose Pine Moon,light:Rose Pine Moon 
+
+# Or set individual themes
+# theme = Rose Pine
+# theme = Rose Pine Moon
+# theme = Rose Pine Dawn
+
+# Close the current split pane (not the whole tab)
+keybind = ctrl+shift+d=close_surface
+
+# Background transparency (0.0 to 1.0)
+background-opacity = 0.85
+
+# Initial window size in columns and rows
+window-width = 200 
+window-height = 48
