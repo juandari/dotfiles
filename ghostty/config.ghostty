@@ -1,6 +1,12 @@
 # Automatic dark/light switching
 theme = dark:Rose Pine Moon,light:Rose Pine Moon 
 
+font-size = 16
+command = /opt/homebrew/bin/fish
+
+# Send Option as Alt/Meta instead of composing special characters (fixes herdr alt-keybinds)
+macos-option-as-alt = true
+
 # Or set individual themes
 # theme = Rose Pine
 # theme = Rose Pine Moon
@@ -10,8 +16,9 @@ theme = dark:Rose Pine Moon,light:Rose Pine Moon
 keybind = ctrl+shift+d=close_surface
 
 # Background transparency (0.0 to 1.0)
-background-opacity = 0.85
+background-opacity = 0.95
 
 # Initial window size in columns and rows
 window-width = 200 
 window-height = 48
+
