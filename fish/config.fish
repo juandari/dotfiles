@@ -18,15 +18,18 @@ end
 # set -gx PATH "/home/juandari/.local/bin" $PATH
 
 # Go binary path
-fish_add_path /home/juandari/go/bin
-fish_add_path /home/juandari/.local/bin
+fish_add_path $HOME/go/bin
+fish_add_path $HOME/.local/bin
 
-# Prioritize Homebrew (so python3, etc. resolve to Homebrew versions over system ones)
-fish_add_path --move --prepend /opt/homebrew/bin
-fish_add_path --move --prepend /opt/homebrew/sbin
+# Prioritize Homebrew (so python3, etc. resolve to Homebrew versions over system
+# ones). macOS only — guarded so these don't end up in fish_user_paths on Linux.
+for dir in /opt/homebrew/sbin /opt/homebrew/bin
+    if test -d $dir
+        fish_add_path --move --prepend $dir
+    end
+end
 
-# fnm (Node.js version manager)
-fnm env --use-on-cd | source
+# fnm is set up in conf.d/fnm.fish
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/juandari/google-cloud-sdk/path.fish.inc' ]; . '/Users/juandari/google-cloud-sdk/path.fish.inc'; end
+if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end

@@ -1,0 +1,7 @@
+# macOS-only Ghostty settings. Loaded via the config.os link from config.ghostty.
+
+# fish lives under Homebrew here, not /usr/bin.
+command = /opt/homebrew/bin/fish
+
+# Send Option as Alt/Meta instead of composing special characters (fixes herdr alt-keybinds)
+macos-option-as-alt = true

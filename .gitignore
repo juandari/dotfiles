@@ -2,6 +2,9 @@
 # Let each machine own its own copy.
 fish/fish_variables
 
+# Per-machine link created by install.sh (-> config.macos or config.linux)
+ghostty/config.os
+
 # Stray editor/manual backups
 *.backup
 *.bak

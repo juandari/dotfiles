@@ -2,10 +2,6 @@
 theme = dark:Rose Pine Moon,light:Rose Pine Moon 
 
 font-size = 16
-command = /opt/homebrew/bin/fish
-
-# Send Option as Alt/Meta instead of composing special characters (fixes herdr alt-keybinds)
-macos-option-as-alt = true
 
 # Or set individual themes
 # theme = Rose Pine
@@ -19,6 +15,11 @@ keybind = ctrl+shift+d=close_surface
 background-opacity = 0.95
 
 # Initial window size in columns and rows
-window-width = 200 
+window-width = 200
 window-height = 48
+
+# Per-OS settings. install.sh points config.os at config.macos or config.linux.
+# Loaded last, so anything here overrides the settings above. The leading ?
+# keeps Ghostty quiet if the link hasn't been created yet.
+config-file = ?config.os
 

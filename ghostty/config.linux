@@ -1,0 +1,4 @@
+# Linux-only Ghostty settings. Loaded via the config.os link from config.ghostty.
+
+# No overrides needed so far: fish is the login shell, so Ghostty picks it up
+# without an explicit `command`, and macos-option-as-alt has no meaning here.

@@ -51,6 +51,15 @@ link() {
 (( DRY_RUN )) && echo "DRY RUN — nothing will be changed"
 echo "dotfiles: $DOTFILES"
 
+# Ghostty has no OS conditionals, so config.ghostty includes ?config.os and we
+# point that at the right file for this machine.
+echo "per-OS config"
+case "$(uname -s)" in
+  Darwin) link ghostty/config.macos "$DOTFILES/ghostty/config.os" ;;
+  Linux)  link ghostty/config.linux "$DOTFILES/ghostty/config.os" ;;
+  *)      printf '  !! unknown OS %s, skipping ghostty/config.os\n' "$(uname -s)" ;;
+esac
+
 echo "~/.config"
 link fish    "$CONFIG/fish"
 link ghostty "$CONFIG/ghostty"
