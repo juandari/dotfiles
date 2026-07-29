@@ -1,0 +1,34 @@
+{
+  "model": "opus",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/inject-plan-files.sh",
+            "timeout": 10,
+            "statusMessage": "Checking for plan files"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "ExitPlanMode",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/enforce-plan-todo.sh",
+            "timeout": 10,
+            "statusMessage": "Enforcing plan file + todo list"
+          }
+        ]
+      }
+    ]
+  },
+  "effortLevel": "high",
+  "plansDirectory": ".claude/plans",
+  "tui": "fullscreen",
+  "theme": "dark"
+}
