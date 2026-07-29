@@ -5,6 +5,14 @@ fish/fish_variables
 # Per-machine link created by install.sh (-> config.macos or config.linux)
 ghostty/config.os
 
+# herdr runtime state — only config.toml is real config; the rest is
+# per-machine (logs, live session, sockets, plugin lock). Let each machine own it.
+herdr/*.log
+herdr/*.sock
+herdr/.plugins.lock
+herdr/session.json
+herdr/session-history.json
+
 # Stray editor/manual backups
 *.backup
 *.bak
