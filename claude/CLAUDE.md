@@ -2,13 +2,14 @@
 
 ## Planning & execution
 
-- After planning any non-trivial task, publish the implementation plan as an Artifact instead of writing a markdown file. The Artifact should contain:
+- After planning any non-trivial task, write the implementation plan to a **local markdown file** at `.claude/plans/PLAN-<short-task-slug>.md` under the project root (not a claude.ai Artifact — a local file so any agent can read and edit it with zero friction). The file should contain:
   - A short summary of the goal and approach
-  - A todo list / checklist of concrete implementation steps
-- To update the plan, edit the same source file and republish to the same Artifact URL so the link stays stable — don't mint a new Artifact for each revision.
-- Treat the plan as a living document: check off items in the Artifact as they're completed, and revise/improve the plan when new information or obstacles appear during implementation.
-- If a task references an existing plan Artifact, read it first (via its URL) and follow its approach instead of re-planning from scratch.
-- Fallback: if Artifacts are unavailable (e.g. offline or no publish access), write the plan to `.claude/plans/PLAN-<short-task-slug>.md` under the project root instead, and delete it once the task is fully complete.
+  - A todo list / checklist of concrete implementation steps (`- [ ]` / `- [x]`)
+- The markdown file is the single source of truth. Treat it as a living document: check off items as they're completed, and revise/improve the plan when new information or obstacles appear during implementation. Edit the same file in place — don't create a new file per revision.
+- If a task references an existing plan file, read it first and follow its approach instead of re-planning from scratch.
+- Human view (optional): plans render at `http://localhost:3030` via a zero-dependency viewer that live-reloads on file change. Start it from the project root with:
+  `node ~/dotfiles/claude/tools/plan-viewer.mjs` (defaults to `./.claude/plans` on port 3030; override with a dir arg and `--port N`). Agents never talk to the server — they only edit the `.md` files; the server is a read-only rendered view.
+- Delete a plan file once its task is fully complete.
 
 ## Code quality
 
