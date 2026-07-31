@@ -9,7 +9,11 @@
 - If a task references an existing plan file, read it first and follow its approach instead of re-planning from scratch.
 - Human view (optional): plans render at `http://localhost:3030` via a zero-dependency viewer that live-reloads on file change. Start it from the project root with:
   `node ~/dotfiles/claude/tools/plan-viewer.mjs` (defaults to `./.claude/plans` on port 3030; override with a dir arg and `--port N`). Agents never talk to the server — they only edit the `.md` files; the server is a read-only rendered view.
-- Delete a plan file once its task is fully complete.
+- Delete a plan file once its task is fully complete and has been code-reviewed, not right after implementation finishes.
+
+## Shell
+
+- The user's shell is fish. When setting env vars or writing any shell commands (Bash tool or otherwise), use fish syntax (e.g. `set -x KEY value`, not `export KEY=value`), not bash/zsh syntax.
 
 ## Code quality
 
