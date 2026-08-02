@@ -31,5 +31,16 @@ end
 
 # fnm is set up in conf.d/fnm.fish
 
+# Default Editor (Antigravity IDE)
+set -gx EDITOR "code --wait"
+set -gx VISUAL "code --wait"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end
+
+# Android SDK configuration
+set -gx ANDROID_HOME $HOME/Library/Android/sdk
+if test -d $ANDROID_HOME
+    fish_add_path $ANDROID_HOME/emulator $ANDROID_HOME/platform-tools
+end
+
