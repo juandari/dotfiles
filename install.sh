@@ -74,6 +74,17 @@ link claude/CLAUDE.md     "$HOME/.claude/CLAUDE.md"
 link claude/settings.json "$HOME/.claude/settings.json"
 link claude/hooks         "$HOME/.claude/hooks"
 
+# Reusable agent personas — one source of truth in agents/, linked into every
+# tool that reads a name+description markdown: Claude Code subagents and
+# Antigravity/Gemini skills. No model is pinned; whichever CLI runs the file
+# decides the model, which is what keeps the personas tool-agnostic.
+echo "agent personas"
+for persona in "$DOTFILES"/agents/*.md; do
+  name=$(basename -- "$persona" .md)
+  link "$persona" "$HOME/.claude/agents/$name.md"
+  link "$persona" "$HOME/.gemini/config/skills/$name/SKILL.md"
+done
+
 # Codex/other agents read AGENTS.md; point it at the same instructions.
 # Via ~/.claude/CLAUDE.md (linked just above) to match the existing setup.
 echo "~"
