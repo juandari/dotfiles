@@ -85,9 +85,15 @@ for persona in "$DOTFILES"/agents/*.md; do
   link "$persona" "$HOME/.gemini/config/skills/$name/SKILL.md"
 done
 
-# Codex/other agents read AGENTS.md; point it at the same instructions.
+# Codex/other agents read AGENTS.md and GEMINI.md; point them at the same instructions.
 # Via ~/.claude/CLAUDE.md (linked just above) to match the existing setup.
 echo "~"
 link "$HOME/.claude/CLAUDE.md" "$HOME/AGENTS.md"
+link "$HOME/.claude/CLAUDE.md" "$HOME/GEMINI.md"
+
+if [[ -f "$HOME/.claude/CLAUDE.local.md" ]]; then
+  link "$HOME/.claude/CLAUDE.local.md" "$HOME/AGENTS.local.md"
+  link "$HOME/.claude/CLAUDE.local.md" "$HOME/GEMINI.local.md"
+fi
 
 echo "done"

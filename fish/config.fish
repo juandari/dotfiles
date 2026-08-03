@@ -44,3 +44,7 @@ if test -d $ANDROID_HOME
     fish_add_path $ANDROID_HOME/emulator $ANDROID_HOME/platform-tools
 end
 
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/root/.local/bin" $PATH

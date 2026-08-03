@@ -1,5 +1,9 @@
 # Global instructions
 
+## Environment & Host Machine
+
+- Machine-specific hardware, OS, and host specs are defined locally on each device in `~/.claude/CLAUDE.local.md` (or `~/AGENTS.local.md`) if present. Read that file for local host details.
+
 ## Planning & execution
 
 - After planning any non-trivial task, write the implementation plan to a **local markdown file** at `.claude/plans/PLAN-<short-task-slug>.md` under the project root (not a claude.ai Artifact — a local file so any agent can read and edit it with zero friction). The file should contain:

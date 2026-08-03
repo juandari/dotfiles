@@ -13,6 +13,10 @@ herdr/.plugins.lock
 herdr/session.json
 herdr/session-history.json
 
+# Per-machine agent memory / specs
+*.local.md
+claude/CLAUDE.local.md
+
 # Stray editor/manual backups
 *.backup
 *.bak

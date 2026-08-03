@@ -1,4 +1,6 @@
 {
+  "model": "opus",
+  "effortLevel": "high",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -24,9 +26,20 @@
           }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/root/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   },
-  "effortLevel": "high",
   "plansDirectory": ".claude/plans",
   "tui": "fullscreen",
   "theme": "dark"
