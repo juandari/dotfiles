@@ -117,7 +117,7 @@ require("lazy").setup({
   -- Treesitter (Advanced Syntax Highlighting)
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.10.0",
+    branch = "master",
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -168,7 +168,9 @@ require("lazy").setup({
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
     ft = { "markdown" },
     config = function()
-      require("render-markdown").setup({})
+      require("render-markdown").setup({
+        latex = { enabled = false },
+      })
       vim.keymap.set("n", "<leader>rm", "<cmd>RenderMarkdown toggle<CR>", { desc = "Toggle Markdown Render" })
     end
   },
