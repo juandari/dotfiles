@@ -1,6 +1,4 @@
 {
-  "model": "opus",
-  "effortLevel": "high",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -40,6 +38,7 @@
       }
     ]
   },
+  "effortLevel": "medium",
   "plansDirectory": ".claude/plans",
   "tui": "fullscreen",
   "theme": "dark"

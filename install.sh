@@ -85,6 +85,15 @@ for persona in "$DOTFILES"/agents/*.md; do
   link "$persona" "$HOME/.gemini/config/skills/$name/SKILL.md"
 done
 
+# Reference skills (topology/runbook docs, distinct from agent personas
+# above) — one source of truth in skills/<name>/SKILL.md, linked into
+# Claude Code's user-level skills dir.
+echo "reference skills"
+for skill_dir in "$DOTFILES"/skills/*/; do
+  name=$(basename -- "$skill_dir")
+  link "skills/$name/SKILL.md" "$HOME/.claude/skills/$name/SKILL.md"
+done
+
 # Codex/other agents read AGENTS.md and GEMINI.md; point them at the same instructions.
 # Via ~/.claude/CLAUDE.md (linked just above) to match the existing setup.
 echo "~"
