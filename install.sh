@@ -105,4 +105,16 @@ if [[ -f "$HOME/.claude/CLAUDE.local.md" ]]; then
   link "$HOME/.claude/CLAUDE.local.md" "$HOME/GEMINI.local.md"
 fi
 
+echo "default shell"
+FISH_BIN=$(command -v fish || true)
+if [[ -z $FISH_BIN ]]; then
+  printf '  !! fish not installed, skipping shell change\n'
+elif [[ "${SHELL:-}" == "$FISH_BIN" ]]; then
+  printf '  ok  already fish\n'
+else
+  grep -qxF "$FISH_BIN" /etc/shells || run sh -c "echo '$FISH_BIN' >> /etc/shells"
+  printf '  chsh -> %s\n' "$FISH_BIN"
+  run chsh -s "$FISH_BIN" "$(id -un)"
+fi
+
 echo "done"
